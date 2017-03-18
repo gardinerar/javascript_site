@@ -125,72 +125,72 @@ var pellSlider = function(me) {
 	button.textContent = 'Pell(' + me.value + ')';
 }
 
-// //TRIBONACCI
-// function tribHelper(n) {
-// 	var value;
-// 	var div = document.createElement('div');
-// 	div.setAttribute("class", "fib");
+//TRIBONACCI
+function tribHelper(n) {
+	var value;
+	var div = document.createElement('div');
+	div.setAttribute("class", "fib");
 
-// 	n = parseInt(n);
+	n = parseInt(n);
 
-// 	// leaf nodes aka. base case
-// 	if (n < 3) {
-// 		if (n === 0) {
-// 			value = 0;
-// 		} 
-// 		else if (n === 1) {
-// 			value = 0;
-// 		}
-// 		else if (n === 2) {
-// 			value = 1;
-// 		}
-// 		var p = document.createElement('p');
-// 		p.textContent = 'Trib('  n  ') = '  value;
-// 		div.appendChild(p)
-// 	} 
-// 	else {
-// 		var left = tribHelper(n - 1);
-// 		var clas = left.html.getAttribute("class");
-// 		left.html.setAttribute("class", clas  " fib-left");
+	// leaf nodes aka. base case
+	if (n < 3) {
+		if (n === 0) {
+			value = 0;
+		} 
+		else if (n === 1) {
+			value = 0;
+		}
+		else if (n === 2) {
+			value = 1;
+		}
+		var p = document.createElement('p');
+		p.textContent = 'Trib(' + n + ') = ' + value;
+		div.appendChild(p)
+	} 
+	else {
+		var left = tribHelper(n - 1);
+		var clas = left.html.getAttribute("class");
+		left.html.setAttribute("class", clas + " fib-left");
 		
-//     var middle = tribHelper(n - 2);
-// 		clas = middle.html.getAttribute("class");
-// 		middle.html.setAttribute("class", clas  " fib-middle");
+    var middle = tribHelper(n - 2);
+		clas = middle.html.getAttribute("class");
+		middle.html.setAttribute("class", clas + " fib-middle");
 		
-// 		var right = tribHelper(n - 3);
-// 		clas = right.html.getAttribute("class");
-// 		right.html.setAttribute("class", clas  " fib-right");
+		var right = tribHelper(n - 3);
+		clas = right.html.getAttribute("class");
+		right.html.setAttribute("class", clas + " fib-right");
 		
-// 		value = left.value  right.value  middle.value;
-// 		var p = document.createElement('p');
-// 		p.textContent = 'Trib('  n  ') = '  value;
-// 		div.appendChild(p);
+		value = left.value + right.value + middle.value;
+		var p = document.createElement('p');
+		p.textContent = 'Trib(' + n + ') = ' + value;
+		div.appendChild(p);
 
-// 		div.appendChild(left.html);
-// 		div.appendChild(middle.html);
-// 		div.appendChild(right.html);
-// 	}
-// 	return { 'value': value, 'html': div };
-// }
-// var trib = function (n, node) {
-// 	var tribTree = node.querySelector('div.fib');
-// 	if (tribTree) {
-// 		node.removeChild(tribTree);
-// 	}
+		div.appendChild(left.html);
+		div.appendChild(middle.html);
+	div.appendChild(right.html);
+	}
+	return { 'value': value, 'html': div };
+}
+var trib = function (n, node) {
+	var tribTree = node.querySelector('div.fib');
+	if (tribTree) {
+		node.removeChild(tribTree);
+	}
 
-// 	var tree = tribHelper(n);
-// 	node.appendChild(tree.html);
-// }
+	var tree = tribHelper(n);
+	node.appendChild(tree.html);
+}
 
-// var tribButton = function(me) {
-// 	var form = me.parentNode;
-// 	var slider = form.querySelector('input');
-// 	var value = slider.value;
-// 	trib(value, form.parentNode);
-// }
+var tribButton = function(me) {
+	var form = me.parentNode;
+	var slider = form.querySelector('input');
+	var value = slider.value;
+	trib(value, form.parentNode);
+}
 
-// var tribSlider = function(me) {
-// 	var form = me.parentNode;
-// 	var button = form.querySelector('button');
-// 	button.textContent = 'Trib(' + me.value + ')';
-// }
+var tribSlider = function(me) {
+	var form = me.parentNode;
+	var button = form.querySelector('button');
+	button.textContent = 'Trib(' + me.value + ')';
+}
